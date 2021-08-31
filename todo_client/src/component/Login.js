@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import WelcomeComponent from "./Todo";
 
 
 class LoginComponent extends Component {
@@ -23,8 +24,9 @@ class LoginComponent extends Component {
 
     handleLoginClicked() {
         if (this.state.username === 'tri135790' && this.state.password === 'tri123_NK') {
-            this.setState({isLoginFailed:false})
-            this.setState({isLoginSuccess:true})
+            this.props.history.push(`/todo`)
+            // this.setState({isLoginFailed:false})
+            // this.setState({isLoginSuccess:true})
         } else {
             this.setState({isLoginFailed:true})
             this.setState({isLoginSuccess:false})
