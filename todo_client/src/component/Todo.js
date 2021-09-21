@@ -8,9 +8,9 @@ class TodoComponent extends Component {
         super(props)
         this.state = {
             todos : [
-                {id: 1, description: 'Learn React'},
-                {id: 2, description: 'Learn Java'},
-                {id: 3, description: 'Learn how to learn'}
+                {id: 1, description: 'Learn React', done: false, targetDate: new Date()},
+                {id: 2, description: 'Learn Java', done: false, targetDate: new Date()},
+                {id: 3, description: 'Learn how to learn', done: false, targetDate: new Date()}
             ]
         }
     }
@@ -23,6 +23,8 @@ class TodoComponent extends Component {
                     <tr>
                         <th>id</th>
                         <th>descripstion</th>
+                        <th>done</th>
+                        <th>target date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,6 +34,8 @@ class TodoComponent extends Component {
                             <tr>
                                 <th>{todo.id}</th>
                                 <th>{todo.description}</th>
+                                <th>{todo.done.toString()}</th>
+                                <th>{todo.targetDate.toString()}</th>
                             </tr>
                         )
                     }
