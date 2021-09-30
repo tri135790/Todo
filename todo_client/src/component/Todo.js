@@ -18,29 +18,30 @@ class TodoComponent extends Component {
     render() {
         return <div>
             <h1>List Todos</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>descripstion</th>
-                        <th>done</th>
-                        <th>target date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        this.state.todos.map(
-                            todo => 
-                            <tr>
-                                <th>{todo.id}</th>
-                                <th>{todo.description}</th>
-                                <th>{todo.done.toString()}</th>
-                                <th>{todo.targetDate.toString()}</th>
-                            </tr>
-                        )
-                    }
-                </tbody>
-            </table>
+            <div className="container">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>descripstion</th>
+                            <th>done</th>
+                            <th>target date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            this.state.todos.map(
+                                todo => 
+                                <tr>
+                                    <th>{todo.description}</th>
+                                    <th>{todo.done.toString()}</th>
+                                    <th>{todo.targetDate.toString()}</th>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
     }
 }

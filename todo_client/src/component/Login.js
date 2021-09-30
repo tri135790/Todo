@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import WelcomeComponent from "./Todo";
+import AuthenticationService from "./AuthenticationService";
 
 
 class LoginComponent extends Component {
@@ -24,9 +25,8 @@ class LoginComponent extends Component {
 
     handleLoginClicked() {
         if (this.state.username === 'tri135790' && this.state.password === 'tri123_NK') {
+            AuthenticationService.registerSuccessfulLogin(this.state.username, this.state.password)
             this.props.history.push(`/welcome`)
-            // this.setState({isLoginFailed:false})
-            // this.setState({isLoginSuccess:true})
         } else {
             this.setState({isLoginFailed:true})
             this.setState({isLoginSuccess:false})
@@ -36,35 +36,18 @@ class LoginComponent extends Component {
     render() {
         return(
             <div>
-                {/* <ShowInvalidCredentials isLoginFailed={this.state.isLoginFailed}/> */}
-                {/* <ShowSuccessCredentials isLoginSuccess={this.state.isLoginSuccess}/> */}
-                {this.state.isLoginFailed && <div> Invalid </div>}
-                {this.state.isLoginSuccess && <div> Successfully </div>}
-                User Name: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
-                Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
-            <button onClick={this.handleLoginClicked}> Login</button>
+                <h1>Login</h1>
+                <div className="container">
+                    {this.state.isLoginFailed && <div className="alert alert-warning"> Invalid </div>}
+                    {this.state.isLoginSuccess && <div> Successfully </div>}
+                    User: <input type="text" name="username" value={this.state.username} onChange={this.handleChange} />
+                    Password: <input type="password" name="password" value={this.state.password} onChange={this.handleChange} />
+                    <button className="btn btn-success" onClick={this.handleLoginClicked}>Login</button>
+                </div>
             </div>
         )
     }
 }
 
-function ShowInvalidCredentials(props) {
-    if(props.isLoginFailed) {
-        return <div>
-            Invalid Credentials
-        </div>
-    }
-    return null;
-}
-
-
-function ShowSuccessCredentials(props) {
-    if(props.isLoginSuccess) {
-        return <div>
-            Login Successfully!
-        </div>
-    }
-    return null;
-}
 
 export default LoginComponent;

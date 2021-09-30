@@ -6,7 +6,7 @@ import WelcomeComponent from "./Welcome";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HeaderComponent from "./Header";
 import FooterComponent from "./Footer";
-
+import LogoutComponent from "./Logout";
 
 class TodoApp extends Component {
     render() {
@@ -19,6 +19,7 @@ class TodoApp extends Component {
                         <Route path="/login" component={LoginComponent} />
                         <Route path="/todo" component={TodoComponent} />
                         <Route path="/welcome" component={WelcomeComponent} />
+                        <Route path="/logout" component={LogoutComponent} />
                         <Route component={ErrorComponent}/>
                     </Switch>
                     <FooterComponent/>
