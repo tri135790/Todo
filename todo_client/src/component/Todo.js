@@ -31,7 +31,7 @@ class TodoComponent extends Component {
                         {
                             this.state.todos.map(
                                 todo => 
-                                <tr>
+                                <tr key={todo.id}>
                                     <th>{todo.description}</th>
                                     <th>{todo.done.toString()}</th>
                                     <th>{todo.targetDate.toString()}</th>

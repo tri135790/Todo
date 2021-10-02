@@ -7,6 +7,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HeaderComponent from "./Header";
 import FooterComponent from "./Footer";
 import LogoutComponent from "./Logout";
+import AuthenticatedRoute from "../authentication/AuthenticatedRoute";
 
 class TodoApp extends Component {
     render() {
@@ -17,9 +18,9 @@ class TodoApp extends Component {
                     <Switch>
                         <Route path="/" exact component={LoginComponent} />
                         <Route path="/login" component={LoginComponent} />
-                        <Route path="/todo" component={TodoComponent} />
-                        <Route path="/welcome" component={WelcomeComponent} />
-                        <Route path="/logout" component={LogoutComponent} />
+                        <AuthenticatedRoute path="/todo" component={TodoComponent} />
+                        <AuthenticatedRoute path="/welcome" component={WelcomeComponent} />
+                        <AuthenticatedRoute path="/logout" component={LogoutComponent} />
                         <Route component={ErrorComponent}/>
                     </Switch>
                     <FooterComponent/>
