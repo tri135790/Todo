@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import WelcomeComponent from "./Todo";
 import AuthenticationService from "../authentication/AuthenticationService";
 
 
